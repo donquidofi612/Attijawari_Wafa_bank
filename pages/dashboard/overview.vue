@@ -41,7 +41,7 @@ const recentActivities = ref(bankData.recentActivities);
           <div class="d-flex align-items-center justify-content-between">
             <div>
               <div class="fw-semibold fs-16 text-white mb-1">Solde Disponible</div>
-              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} MAD</h4>
+              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} DH</h4>
               <a href="javascript:void(0);" class="text-white">Voir plus</a>
             </div>
           </div>
@@ -54,8 +54,8 @@ const recentActivities = ref(bankData.recentActivities);
       <div class="card custom-card info-card">
         <div class="card-body">
           <p class="text-muted mb-0">Carte de Crédit</p>
-          <h5 class="fw-semibold mt-1">{{ creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
-          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardLimit.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</p>
+          <h5 class="fw-semibold mt-1">{{ creditCardBalance.toLocaleString('fr-FR', + ' DH') }}</h5>
+          <p class="mb-0 text-danger fw-semibold">Limite : {{ creditCardLimit.toLocaleString('fr-FR', + ' DH') }}</p>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@ const recentActivities = ref(bankData.recentActivities);
       <div class="card custom-card info-card">
         <div class="card-body">
           <p class="text-muted mb-0">Compte Épargne</p>
-          <h5 class="fw-semibold mt-1">{{ savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+          <h5 class="fw-semibold mt-1">{{ savingsBalance.toLocaleString('fr-FR', + ' DH') }}</h5>
           <p class="mb-0 text-success fw-semibold">+{{ savingsGrowth }}% ce mois</p>
         </div>
       </div>
@@ -134,7 +134,7 @@ const recentActivities = ref(bankData.recentActivities);
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="{'text-success': transaction.type === 'Crédit', 'text-danger': transaction.type === 'Débit'}">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', + ' DH') }}
               </td>
             </tr>
             </tbody>
