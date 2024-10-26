@@ -7,8 +7,8 @@ export const logoUrl = "https://www.attijariwafabank.com/themes/awbcorporate/log
 // Solde du prêt ajouté
 export const loanBalance = 100000; // Exemple de solde de prêt
 
-export const accountBalance = "2 550 000,00"; // Solde du compte
-export const currency = "EUR"; // Solde du compte
+export const accountBalance = "80.870.323,420"; // Solde du compte
+export const currency = "DH"; // Solde du compte
 export const targetProgress = 48; // Progression en %
 
 export const creditCardBalance = -2500.00; // Exemple de solde carte de crédit
@@ -17,7 +17,7 @@ export const creditCardLimit = 5000.00; // Limite carte de crédit
 export const savingsBalance = 1210000; // Solde épargne
 export const savingsGrowth = 5.2; // Croissance épargne en pourcentage
 
-export const fullname = "Jean Michel HANNON";
+export const fullname = "Gautier Vincent ";
 
 // Transactions récentes mises à jour
 export const recentTransactions = [
