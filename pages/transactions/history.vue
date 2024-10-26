@@ -51,9 +51,9 @@
                 {{ transaction.type }}
               </td>
               <td :class="transaction.type === 'Crédit' ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}
               </td>
-              <td>{{ transaction.balanceAfter.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</td>
+              <td>{{ transaction.balanceAfter.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</td>
             </tr>
             </tbody>
           </table>
