@@ -27,7 +27,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Montant Total en Attente</p>
-            <h4 class="fw-semibold mb-1">{{ totalPendingAmount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ totalPendingAmount.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</h4>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
                 {{ transaction.type }}
               </td>
               <td :class="transaction.type === 'Crédit' ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}
               </td>
               <td :class="getStatusClass(transaction.status)">
                 {{ transaction.status }}
