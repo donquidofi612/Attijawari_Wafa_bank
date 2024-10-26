@@ -41,7 +41,7 @@ const recentActivities = ref(bankData.recentActivities);
           <div class="d-flex align-items-center justify-content-between">
             <div>
               <div class="fw-semibold fs-16 text-white mb-1">Solde Disponible</div>
-              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} DH</h4>
+              <h4 class="fw-bold text-white mb-1">{{ accountBalance }} MAD</h4>
               <a href="javascript:void(0);" class="text-white">Voir plus</a>
             </div>
           </div>
