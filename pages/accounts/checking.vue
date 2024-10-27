@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Solde Actuel</p>
-            <h4 class="fw-semibold mb-1">{{ currentBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(currentBalance) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Découvert Autorisé</p>
-            <h4 class="fw-semibold mb-1">{{ overdraftLimit.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(overdraftLimit) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Modifier limite</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Solde Disponible</p>
-            <h4 class="fw-semibold mb-1">{{ availableBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(availableBalance) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir plus</a>
           </div>
         </div>
@@ -77,7 +77,7 @@
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="transaction.amount > 0 ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
+                {{ formatCurrency(transaction.amount) }}
               </td>
             </tr>
             </tbody>
@@ -114,6 +114,11 @@ export default {
     definePageMeta({
       middleware: [auth],
     });
+
+    // Fonction pour formater les montants en DH
+    const formatCurrency = (value: number) => {
+      return value + ' DH';
+    };
 
     // Données du compte courant
     const currentBalance = ref(8000); // Solde actuel
@@ -167,7 +172,8 @@ export default {
       availableBalance,
       transactions,
       chartSeries,
-      chartOptions
+      chartOptions,
+      formatCurrency
     };
   },
   components: {
