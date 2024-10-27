@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Solde Épargne Actuel</p>
-            <h4 class="fw-semibold mb-1">{{ savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(savingsBalance) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Intérêts Accumulés</p>
-            <h4 class="fw-semibold mb-1">{{ accumulatedInterest.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(accumulatedInterest) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -77,7 +77,7 @@
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="transaction.amount > 0 ? 'text-success' : 'text-danger'">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}
+                {{ formatCurrency(transaction.amount) }}
               </td>
             </tr>
             </tbody>
@@ -114,6 +114,11 @@ export default {
     definePageMeta({
       middleware: [auth],
     });
+
+    // Fonction pour formater les montants en DH
+    const formatCurrency = (value: number) => {
+      return value + ' DH';
+    };
 
     // Données du compte épargne
     const savingsBalance = ref(1210000); // Solde épargne actuel
@@ -171,7 +176,8 @@ export default {
       savingsGoals,
       savingsTransactions,
       chartSeries,
-      chartOptions
+      chartOptions,
+      formatCurrency
     };
   },
   components: {
