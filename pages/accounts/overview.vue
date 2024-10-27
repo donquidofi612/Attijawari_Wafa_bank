@@ -134,7 +134,7 @@ export default {
 
     // Fonction pour formater le montant et ajouter DH à la fin
     const formatCurrency = (value: number) => {
-      return value.toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' DH';
+      return value + ' DH';
     };
 
     // Données pour passer à PageHeader
