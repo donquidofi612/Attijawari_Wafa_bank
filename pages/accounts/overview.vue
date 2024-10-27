@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Courant</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ formatCurrency(bankData.checkingAccountBalance) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Épargne</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ formatCurrency(bankData.savingsBalance) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Carte de Crédit</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ formatCurrency(bankData.creditCardBalance) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Prêts</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ formatCurrency(bankData.loanBalance) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -93,7 +93,7 @@
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="{'text-success': transaction.type === 'Crédit', 'text-danger': transaction.type === 'Débit'}">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'DH' }) }}
+                {{ formatCurrency(transaction.amount) }}
               </td>
             </tr>
             </tbody>
@@ -119,7 +119,6 @@
   <!--End::row-2 -->
 </template>
 
-
 <script lang="ts">
 import PageHeader from "@/components/common/pageheader.vue";
 import auth from '@/middleware/auth';
@@ -133,6 +132,11 @@ export default {
       middleware: [auth],
     });
 
+    // Fonction pour formater le montant et ajouter DH à la fin
+    const formatCurrency = (value: number) => {
+      return value.toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' DH';
+    };
+
     // Données pour passer à PageHeader
     const dataToPass = {
       current: "Vue d'ensemble",
@@ -141,7 +145,8 @@ export default {
 
     return {
       dataToPass,
-      bankData // Importer les données du fichier bankData.js directement
+      bankData,
+      formatCurrency
     };
   },
   components: {
@@ -150,7 +155,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped>
 /* Styles communs pour les cartes d'information */
