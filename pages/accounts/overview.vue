@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Courant</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.checkingAccountBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'HD' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Compte Épargne</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.savingsBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'HD' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Carte de Crédit</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.creditCardBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'HD' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Prêts</p>
-            <h5 class="fw-semibold mb-1">{{ bankData.loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}</h5>
+            <h5 class="fw-semibold mb-1">{{ bankData.loanBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'HD' }) }}</h5>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -93,7 +93,7 @@
               <td>{{ transaction.date }}</td>
               <td>{{ transaction.description }}</td>
               <td :class="{'text-success': transaction.type === 'Crédit', 'text-danger': transaction.type === 'Débit'}">
-                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'MAD' }) }}
+                {{ transaction.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'HD' }) }}
               </td>
             </tr>
             </tbody>
