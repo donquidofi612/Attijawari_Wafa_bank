@@ -7,7 +7,7 @@ export const logoUrl = "https://www.attijariwafabank.com/themes/awbcorporate/log
 // Solde du prêt ajouté
 export const loanBalance = 100000; // Exemple de solde de prêt
 
-export const accountBalance = "80.870.323,420"; // Solde du compte
+export const accountBalance = "80.870.323,42"; // Solde du compte
 export const currency = "DH"; // Solde du compte
 export const targetProgress = 48; // Progression en %
 
