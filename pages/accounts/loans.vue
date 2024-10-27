@@ -12,7 +12,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Montant Total du Prêt</p>
-            <h4 class="fw-semibold mb-1">{{ totalLoan.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(totalLoan) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir détails</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
           </div>
           <div>
             <p class="text-muted mb-1">Solde Restant Dû</p>
-            <h4 class="fw-semibold mb-1">{{ remainingBalance.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</h4>
+            <h4 class="fw-semibold mb-1">{{ formatCurrency(remainingBalance) }}</h4>
             <a href="javascript:void(0);" class="text-primary">Voir échéancier</a>
           </div>
         </div>
@@ -77,7 +77,7 @@
             <tr v-for="payment in paymentDetails" :key="payment.id">
               <td>{{ payment.date }}</td>
               <td>{{ payment.description }}</td>
-              <td>{{ payment.amount.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' }) }}</td>
+              <td>{{ formatCurrency(payment.amount) }}</td>
               <td :class="payment.status === 'Payé' ? 'text-success' : 'text-danger'">
                 {{ payment.status }}
               </td>
@@ -116,6 +116,11 @@ export default {
     definePageMeta({
       middleware: [auth],
     });
+
+    // Fonction pour formater les montants en DH
+    const formatCurrency = (value: number) => {
+      return value + ' DH';
+    };
 
     // Informations sur les prêts
     const totalLoan = ref(200000); // Montant total emprunté
@@ -168,7 +173,8 @@ export default {
       interestRate,
       paymentDetails,
       remainingPaymentsSeries,
-      remainingPaymentsOptions
+      remainingPaymentsOptions,
+      formatCurrency
     };
   },
   components: {
