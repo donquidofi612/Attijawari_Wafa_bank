@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
         });
 
         const mailOptions = {
-            from: '"Virement Confirmé" <your-email@example.com>',
+            from: '"contact@attijawariwafabank.com" <your-email@example.com>',
             to: body.email,
             subject: body.subject,
             text: `Bonjour ${transfer.beneficiary},\n\nVotre virement de ${transfer.amount} EUR a bien été confirmé.\n\nDétails :\n- IBAN : ${transfer.iban}\n- Montant : ${transfer.amount} EUR\n- Date d'exécution : ${transfer.executionDate}\n\nMerci de votre confiance.\n\nCordialement,`,
